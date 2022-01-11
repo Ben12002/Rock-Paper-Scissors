@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock Paper Scissors</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script>
+
+            const OPTIONS = ["rock", "paper", "scissors"];
+
+            function computerPlay(){
+                return OPTIONS[Math.floor(Math.random()*3)]
+            }
+
+            function PlayOneRound(playerSelection, computerSelection){
+                playerSelection = playerSelection.toLowerCase();
+                computerSelection = computerSelection.toLowerCase();
+
+                if (playerSelection === "rock"){
+                    if (computerSelection === "rock"){
+                        return "Draw! rock vs rock";
+                    }
+                    else if (computerSelection === "paper"){
+                        return "Lose! rock vs paper";
+                    }
+                    else if (computerSelection === "scissors"){
+                        return "Win! rock vs scissors";
+                    }
+                }
+
+                else if (playerSelection === "paper"){
+                    if (computerSelection === "rock"){
+                        return "Win! paper vs rock";
+                    }
+                    else if (computerSelection === "paper"){
+                        return "Draw! paper vs paper";
+                    }
+                    else if (computerSelection === "scissors"){
+                        return "Lose! paper vs scissors";
+                    }
+                }
+
+                else if (playerSelection === "scissors"){
+                    if (computerSelection === "rock"){
+                        return "Lose! scissors vs rock";
+                    }
+                    else if (computerSelection === "paper"){
+                        return "Win! scissors vs paper";
+                    }
+                    else if (computerSelection === "scissors"){
+                        return "Draw! scissors vs scissors";
+                    }
+                }
+                
+                else{
+                    return "INVALID INPUT!";
+                }
+
+                
+            }
+
+            function game(){
+                for (let i = 0; i<5; i++){
+                    let player = prompt("Your choice? : ");
+                    let computer = computerPlay();
+                    console.log(PlayOneRound(player, computer));
+                }
+            }
+
+            game();
+
+
+        </script>
+    </body>
+</html>
